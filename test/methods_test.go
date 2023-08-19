@@ -4,10 +4,12 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
+
+	"github.com/seekr-osint/wayback-machine-golang/internal/wayback"
 )
 
 func TestArchivedSnapshotJSONMarshal(t *testing.T) {
-	snapshot := ArchivedSnapshot{
+	snapshot := wayback.ArchivedSnapshot{
 		Status:    "200",
 		Available: true,
 		URL:       "http://web.archive.org/web/20230819204825/https://github.com/greg",
@@ -30,7 +32,7 @@ func TestArchivedSnapshotJSONUnmarshal(t *testing.T) {
 
 	jsonData := []byte(`{"status":"200","available":true,"url":"http://web.archive.org/web/20230819204825/https://github.com/greg","timestamp":"20230819204825"}`)
 
-	var snapshot ArchivedSnapshot
+	var snapshot wayback.ArchivedSnapshot
 
 	err := json.Unmarshal(jsonData, &snapshot)
 	if err != nil {
@@ -44,7 +46,7 @@ func TestArchivedSnapshotJSONUnmarshal(t *testing.T) {
 }
 
 func TestArchivedSnapshotRoundTrip(t *testing.T) {
-	snapshot := ArchivedSnapshot{
+	snapshot := wayback.ArchivedSnapshot{
 		Status:    "200",
 		Available: true,
 		URL:       "http://web.archive.org/web/20230819204825/https://github.com/greg",
@@ -56,7 +58,7 @@ func TestArchivedSnapshotRoundTrip(t *testing.T) {
 		t.Errorf("Error marshaling JSON: %v", err)
 	}
 
-	var unmarshaledSnapshot ArchivedSnapshot
+	var unmarshaledSnapshot wayback.ArchivedSnapshot
 
 	err = json.Unmarshal(resultJSON, &unmarshaledSnapshot)
 	if err != nil {
@@ -70,4 +72,3 @@ func TestArchivedSnapshotRoundTrip(t *testing.T) {
 		t.Errorf("Snapshot instances are not equal:\nOriginal: %+v\nUnmarshaled: %+v", snapshot, unmarshaledSnapshot)
 	}
 }
-
