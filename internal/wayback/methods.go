@@ -12,7 +12,7 @@ func (a ArchivedSnapshot) MarshalJSON() ([]byte, error) {
 		Alias
 		ArchivedSnapshot string `json:"timestamp"`
 	}{
-		Alias:     (Alias)(a),
+		Alias:            (Alias)(a),
 		ArchivedSnapshot: a.Timestamp.Format(customTimeLayout),
 	})
 }
@@ -37,18 +37,17 @@ func (a *ArchivedSnapshot) UnmarshalJSON(data []byte) error {
 }
 
 func (a ArchivedSnapshot) String() string {
-    jsonString, err := json.MarshalIndent(a, "", "    ")
-    if err != nil {
-        return fmt.Sprintf("Error marshaling JSON: %v", err)
-    }
-    return string(jsonString)
+	jsonString, err := json.MarshalIndent(a, "", "    ")
+	if err != nil {
+		return fmt.Sprintf("Error marshaling JSON: %v", err)
+	}
+	return string(jsonString)
 }
 
 func (s SnapshotData) String() string {
-    jsonString, err := json.MarshalIndent(s, "", "    ")
-    if err != nil {
-        return fmt.Sprintf("Error marshaling JSON: %v", err)
-    }
-    return string(jsonString)
+	jsonString, err := json.MarshalIndent(s, "", "    ")
+	if err != nil {
+		return fmt.Sprintf("Error marshaling JSON: %v", err)
+	}
+	return string(jsonString)
 }
-
