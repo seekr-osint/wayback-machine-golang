@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/seekr-osint/wayback-machine-golang/internal/wayback"
+	"github.com/seekr-osint/wayback-machine-golang/wayback"
 	"github.com/spf13/cobra"
 )
 

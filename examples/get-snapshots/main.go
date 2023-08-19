@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/seekr-osint/wayback-machine-golang/internal/wayback"
+	"github.com/seekr-osint/wayback-machine-golang/wayback"
 )
 
 func main() {
