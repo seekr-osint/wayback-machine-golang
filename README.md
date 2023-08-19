@@ -57,4 +57,4 @@ func main() {
 
 ## License
 
-This library is distributed under the [GPL License](LICENSE).
+This library is distributed under the [GPL v3 License](LICENSE).
