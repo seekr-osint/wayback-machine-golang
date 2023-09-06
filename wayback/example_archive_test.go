@@ -1,4 +1,4 @@
-package archive_test
+package wayback_test
 
 import (
 	"fmt"
